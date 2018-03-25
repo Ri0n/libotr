@@ -1,0 +1,1372 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="DebugDLL|Win32">
+      <Configuration>DebugDLL</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="DebugDLL|x64">
+      <Configuration>DebugDLL</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="ReleaseDLL|Win32">
+      <Configuration>ReleaseDLL</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="ReleaseDLL|x64">
+      <Configuration>ReleaseDLL</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="ReleaseLTO|Win32">
+      <Configuration>ReleaseLTO</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="ReleaseLTO|x64">
+      <Configuration>ReleaseLTO</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\src\auth.c" />
+    <ClCompile Include="..\src\b64.c" />
+    <ClCompile Include="..\src\context.c" />
+    <ClCompile Include="..\src\context_priv.c" />
+    <ClCompile Include="..\src\dh.c" />
+    <ClCompile Include="..\src\instag.c" />
+    <ClCompile Include="..\src\mem.c" />
+    <ClCompile Include="..\src\message.c" />
+    <ClCompile Include="..\src\privkey.c" />
+    <ClCompile Include="..\src\proto.c" />
+    <ClCompile Include="..\src\sm.c" />
+    <ClCompile Include="..\src\tlv.c" />
+    <ClCompile Include="..\src\userstate.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="platform\libotr-win32-defines.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="versioninfo.rc">
+      <ExcludedFromBuild Condition="'$(Configuration)'=='Debug'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)'=='Release'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)'=='ReleaseLTO'">true</ExcludedFromBuild>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="readme.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="libotr.def" />
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{6088223A-3EC9-4A55-8169-335F94AE226C}</ProjectGuid>
+    <RootNamespace>libotr</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset Condition="'$(VisualStudioVersion)' == '15.0'">v141</PlatformToolset>
+    <PlatformToolset Condition="'$(VisualStudioVersion)' == '14.0'">v140</PlatformToolset>
+    <PlatformToolset Condition="'$(VisualStudioVersion)' == '12.0'">v120</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset Condition="'$(VisualStudioVersion)' == '15.0'">v141</PlatformToolset>
+    <PlatformToolset Condition="'$(VisualStudioVersion)' == '14.0'">v140</PlatformToolset>
+    <PlatformToolset Condition="'$(VisualStudioVersion)' == '12.0'">v120</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugDLL|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset Condition="'$(VisualStudioVersion)' == '15.0'">v141</PlatformToolset>
+    <PlatformToolset Condition="'$(VisualStudioVersion)' == '14.0'">v140</PlatformToolset>
+    <PlatformToolset Condition="'$(VisualStudioVersion)' == '12.0'">v120</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugDLL|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset Condition="'$(VisualStudioVersion)' == '15.0'">v141</PlatformToolset>
+    <PlatformToolset Condition="'$(VisualStudioVersion)' == '14.0'">v140</PlatformToolset>
+    <PlatformToolset Condition="'$(VisualStudioVersion)' == '12.0'">v120</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset Condition="'$(VisualStudioVersion)' == '15.0'">v141</PlatformToolset>
+    <PlatformToolset Condition="'$(VisualStudioVersion)' == '14.0'">v140</PlatformToolset>
+    <PlatformToolset Condition="'$(VisualStudioVersion)' == '12.0'">v120</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseLTO|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset Condition="'$(VisualStudioVersion)' == '15.0'">v141</PlatformToolset>
+    <PlatformToolset Condition="'$(VisualStudioVersion)' == '14.0'">v140</PlatformToolset>
+    <PlatformToolset Condition="'$(VisualStudioVersion)' == '12.0'">v120</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset Condition="'$(VisualStudioVersion)' == '15.0'">v141</PlatformToolset>
+    <PlatformToolset Condition="'$(VisualStudioVersion)' == '14.0'">v140</PlatformToolset>
+    <PlatformToolset Condition="'$(VisualStudioVersion)' == '12.0'">v120</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseLTO|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset Condition="'$(VisualStudioVersion)' == '15.0'">v141</PlatformToolset>
+    <PlatformToolset Condition="'$(VisualStudioVersion)' == '14.0'">v140</PlatformToolset>
+    <PlatformToolset Condition="'$(VisualStudioVersion)' == '12.0'">v120</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseDLL|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset Condition="'$(VisualStudioVersion)' == '15.0'">v141</PlatformToolset>
+    <PlatformToolset Condition="'$(VisualStudioVersion)' == '14.0'">v140</PlatformToolset>
+    <PlatformToolset Condition="'$(VisualStudioVersion)' == '12.0'">v120</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseDLL|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset Condition="'$(VisualStudioVersion)' == '15.0'">v141</PlatformToolset>
+    <PlatformToolset Condition="'$(VisualStudioVersion)' == '14.0'">v140</PlatformToolset>
+    <PlatformToolset Condition="'$(VisualStudioVersion)' == '12.0'">v120</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='DebugDLL|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='DebugDLL|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseLTO|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseLTO|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseDLL|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseDLL|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>$(ProjectDir)..\..\..\msvc\</OutDir>
+    <IntDir>$(SolutionDir)obj\$(Configuration)\$(Platform)\$(ProjectName)\</IntDir>
+    <TargetName>libotrd</TargetName>
+    <CustomBuildAfterTargets>Clean</CustomBuildAfterTargets>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <IntDir>$(SolutionDir)obj\$(Configuration)\$(Platform)\$(ProjectName)\</IntDir>
+    <TargetName>libotrd</TargetName>
+    <OutDir>$(ProjectDir)..\..\..\msvc\</OutDir>
+    <CustomBuildAfterTargets>Clean</CustomBuildAfterTargets>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugDLL|Win32'">
+    <OutDir>$(ProjectDir)..\..\..\msvc\</OutDir>
+    <IntDir>$(SolutionDir)obj\$(Configuration)\$(Platform)\$(ProjectName)\</IntDir>
+    <TargetName>otrd</TargetName>
+    <CustomBuildAfterTargets>Clean</CustomBuildAfterTargets>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugDLL|x64'">
+    <IntDir>$(SolutionDir)obj\$(Configuration)\$(Platform)\$(ProjectName)\</IntDir>
+    <TargetName>otrd</TargetName>
+    <OutDir>$(ProjectDir)..\..\..\msvc\</OutDir>
+    <CustomBuildAfterTargets>Clean</CustomBuildAfterTargets>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>$(ProjectDir)..\..\..\msvc\</OutDir>
+    <IntDir>$(SolutionDir)obj\$(Configuration)\$(Platform)\$(ProjectName)\</IntDir>
+    <TargetName>libotr</TargetName>
+    <CustomBuildAfterTargets>Clean</CustomBuildAfterTargets>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseLTO|Win32'">
+    <OutDir>$(ProjectDir)..\..\..\msvc\</OutDir>
+    <IntDir>$(SolutionDir)obj\$(Configuration)\$(Platform)\$(ProjectName)\</IntDir>
+    <TargetName>libotr</TargetName>
+    <CustomBuildAfterTargets>Clean</CustomBuildAfterTargets>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <IntDir>$(SolutionDir)obj\$(Configuration)\$(Platform)\$(ProjectName)\</IntDir>
+    <TargetName>libotr</TargetName>
+    <OutDir>$(ProjectDir)..\..\..\msvc\</OutDir>
+    <CustomBuildAfterTargets>Clean</CustomBuildAfterTargets>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseLTO|x64'">
+    <IntDir>$(SolutionDir)obj\$(Configuration)\$(Platform)\$(ProjectName)\</IntDir>
+    <TargetName>libotr</TargetName>
+    <OutDir>$(ProjectDir)..\..\..\msvc\</OutDir>
+    <CustomBuildAfterTargets>Clean</CustomBuildAfterTargets>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseDLL|Win32'">
+    <OutDir>$(ProjectDir)..\..\..\msvc\</OutDir>
+    <IntDir>$(SolutionDir)obj\$(Configuration)\$(Platform)\$(ProjectName)\</IntDir>
+    <TargetName>otr</TargetName>
+    <CustomBuildAfterTargets>Clean</CustomBuildAfterTargets>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseDLL|x64'">
+    <IntDir>$(SolutionDir)obj\$(Configuration)\$(Platform)\$(ProjectName)\</IntDir>
+    <TargetName>otr</TargetName>
+    <OutDir>$(ProjectDir)..\..\..\msvc\</OutDir>
+    <CustomBuildAfterTargets>Clean</CustomBuildAfterTargets>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <PreprocessorDefinitions>WIN32;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_WIN32_WINNT=0x0502;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>.\;$(OutDir)\include;.\src\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <DisableSpecificWarnings>4996;4018;4005;4244;4267;4312;4311;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+      <ProgramDataBaseFileName>$(OutDir)\lib\x86\$(TargetName).pdb</ProgramDataBaseFileName>
+      <ForcedIncludeFiles>libotr-win32-defines.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <MinimalRebuild>false</MinimalRebuild>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+    <Lib>
+      <OutputFile>$(OutDir)\lib\x86\$(TargetName)$(TargetExt)</OutputFile>
+      <TargetMachine>MachineX86</TargetMachine>
+      <SubSystem>Windows</SubSystem>
+      <AdditionalDependencies>libgcryptd.lib;%(AdditionalDependencies)</AdditionalDependencies>
+	  <AdditionalLibraryDirectories>$(OutDir)\lib\x86\;$(ProjectDir)\..\..\prebuilt\lib\x86\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Lib>
+    <PostBuildEvent>
+      <Command>mkdir "$(OutDir)"\include\libotr
+copy ..\src\auth.h $(OutDir)\include\libotr\
+copy ..\src\b64.h $(OutDir)\include\libotr\
+copy ..\src\context.h $(OutDir)\include\libotr\
+copy ..\src\context_priv.h $(OutDir)\include\libotr\
+copy ..\src\dh.h $(OutDir)\include\libotr\
+copy ..\src\instag.h $(OutDir)\include\libotr\
+copy ..\src\mem.h $(OutDir)\include\libotr\
+copy ..\src\message.h $(OutDir)\include\libotr\
+copy ..\src\privkey.h $(OutDir)\include\libotr\
+copy ..\src\privkey-t.h $(OutDir)\include\libotr\
+copy ..\src\proto.h $(OutDir)\include\libotr\
+copy ..\src\serial.h $(OutDir)\include\libotr\
+copy ..\src\sm.h $(OutDir)\include\libotr\
+copy ..\src\tlv.h $(OutDir)\include\libotr\
+copy ..\src\userstate.h $(OutDir)\include\libotr\
+copy ..\src\version.h $(OutDir)\include\libotr\
+mkdir $(OutDir)\licenses
+copy ..\COPYING.LIB $(OutDir)\licenses\libotr.txt</Command>
+    </PostBuildEvent>
+    <PreBuildEvent>
+      <Command>if exist "$(OutDir)"\include\libotr\auth.h (
+del "$(OutDir)"\include\libotr\auth.h
+)
+if exist "$(OutDir)"\include\libotr\b64.h (
+del "$(OutDir)"\include\libotr\b64.h
+)
+if exist "$(OutDir)"\include\libotr\context.h (
+del "$(OutDir)"\include\libotr\context.h
+)
+if exist "$(OutDir)"\include\libotr\context_priv.h (
+del "$(OutDir)"\include\libotr\context_priv.h
+)
+if exist "$(OutDir)"\include\libotr\dh.h (
+del "$(OutDir)"\include\libotr\dh.h
+)
+if exist "$(OutDir)"\include\libotr\instag.h (
+del "$(OutDir)"\include\libotr\instag.h
+)
+if exist "$(OutDir)"\include\libotr\mem.h (
+del "$(OutDir)"\include\libotr\mem.h
+)
+if exist "$(OutDir)"\include\libotr\message.h (
+del "$(OutDir)"\include\libotr\message.h
+)
+if exist "$(OutDir)"\include\libotr\privkey.h (
+del "$(OutDir)"\include\libotr\privkey.h
+)
+if exist "$(OutDir)"\include\libotr\privkey-t.h (
+del "$(OutDir)"\include\libotr\privkey-t.h
+)
+if exist "$(OutDir)"\include\libotr\proto.h (
+del "$(OutDir)"\include\libotr\proto.h
+)
+if exist "$(OutDir)"\include\libotr\serial.h (
+del "$(OutDir)"\include\libotr\serial.h
+)
+if exist "$(OutDir)"\include\libotr\sm.h (
+del "$(OutDir)"\include\libotr\sm.h
+)
+if exist "$(OutDir)"\include\libotr\tlv.h (
+del "$(OutDir)"\include\libotr\tlv.h
+)
+if exist "$(OutDir)"\include\libotr\userstate.h (
+del "$(OutDir)"\include\libotr\userstate.h
+)
+if exist "$(OutDir)"\include\libotr\version.h (
+del "$(OutDir)"\include\libotr\version.h
+)
+</Command>
+    </PreBuildEvent>
+    <CustomBuildStep>
+      <Message>Custom Clean Step</Message>
+    </CustomBuildStep>
+    <CustomBuildStep>
+      <Outputs>force_clean</Outputs>
+      <Command>rmdir "$(OutDir)"\include\libotr /s /q
+if exist $(OutDir)\licenses\libotr.txt (
+del /f /q $(OutDir)\licenses\libotr.txt
+)</Command>
+    </CustomBuildStep>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <PreprocessorDefinitions>WIN32;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_WIN32_WINNT=0x0600;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>.\;$(OutDir)\include;.\src\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <DisableSpecificWarnings>4996;4018;4005;4244;4267;4312;4311;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+      <ProgramDataBaseFileName>$(OutDir)\lib\x64\$(TargetName).pdb</ProgramDataBaseFileName>
+      <ForcedIncludeFiles>libotr-win32-defines.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <MinimalRebuild>false</MinimalRebuild>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+    <Lib>
+      <OutputFile>$(OutDir)\lib\x64\$(TargetName)$(TargetExt)</OutputFile>
+      <TargetMachine>MachineX64</TargetMachine>
+      <SubSystem>Windows</SubSystem>
+      <AdditionalDependencies>libgcryptd.lib;%(AdditionalDependencies)</AdditionalDependencies>
+	  <AdditionalLibraryDirectories>$(OutDir)\lib\x64\;$(ProjectDir)\..\..\prebuilt\lib\x64\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Lib>
+    <PostBuildEvent>
+      <Command>mkdir "$(OutDir)"\include\libotr
+copy ..\src\auth.h $(OutDir)\include\libotr\
+copy ..\src\b64.h $(OutDir)\include\libotr\
+copy ..\src\context.h $(OutDir)\include\libotr\
+copy ..\src\context_priv.h $(OutDir)\include\libotr\
+copy ..\src\dh.h $(OutDir)\include\libotr\
+copy ..\src\instag.h $(OutDir)\include\libotr\
+copy ..\src\mem.h $(OutDir)\include\libotr\
+copy ..\src\message.h $(OutDir)\include\libotr\
+copy ..\src\privkey.h $(OutDir)\include\libotr\
+copy ..\src\privkey-t.h $(OutDir)\include\libotr\
+copy ..\src\proto.h $(OutDir)\include\libotr\
+copy ..\src\serial.h $(OutDir)\include\libotr\
+copy ..\src\sm.h $(OutDir)\include\libotr\
+copy ..\src\tlv.h $(OutDir)\include\libotr\
+copy ..\src\userstate.h $(OutDir)\include\libotr\
+copy ..\src\version.h $(OutDir)\include\libotr\
+mkdir $(OutDir)\licenses
+copy ..\COPYING.LIB $(OutDir)\licenses\libotr.txt</Command>
+    </PostBuildEvent>
+    <PreBuildEvent>
+      <Command>if exist "$(OutDir)"\include\libotr\auth.h (
+del "$(OutDir)"\include\libotr\auth.h
+)
+if exist "$(OutDir)"\include\libotr\b64.h (
+del "$(OutDir)"\include\libotr\b64.h
+)
+if exist "$(OutDir)"\include\libotr\context.h (
+del "$(OutDir)"\include\libotr\context.h
+)
+if exist "$(OutDir)"\include\libotr\context_priv.h (
+del "$(OutDir)"\include\libotr\context_priv.h
+)
+if exist "$(OutDir)"\include\libotr\dh.h (
+del "$(OutDir)"\include\libotr\dh.h
+)
+if exist "$(OutDir)"\include\libotr\instag.h (
+del "$(OutDir)"\include\libotr\instag.h
+)
+if exist "$(OutDir)"\include\libotr\mem.h (
+del "$(OutDir)"\include\libotr\mem.h
+)
+if exist "$(OutDir)"\include\libotr\message.h (
+del "$(OutDir)"\include\libotr\message.h
+)
+if exist "$(OutDir)"\include\libotr\privkey.h (
+del "$(OutDir)"\include\libotr\privkey.h
+)
+if exist "$(OutDir)"\include\libotr\privkey-t.h (
+del "$(OutDir)"\include\libotr\privkey-t.h
+)
+if exist "$(OutDir)"\include\libotr\proto.h (
+del "$(OutDir)"\include\libotr\proto.h
+)
+if exist "$(OutDir)"\include\libotr\serial.h (
+del "$(OutDir)"\include\libotr\serial.h
+)
+if exist "$(OutDir)"\include\libotr\sm.h (
+del "$(OutDir)"\include\libotr\sm.h
+)
+if exist "$(OutDir)"\include\libotr\tlv.h (
+del "$(OutDir)"\include\libotr\tlv.h
+)
+if exist "$(OutDir)"\include\libotr\userstate.h (
+del "$(OutDir)"\include\libotr\userstate.h
+)
+if exist "$(OutDir)"\include\libotr\version.h (
+del "$(OutDir)"\include\libotr\version.h
+)
+</Command>
+    </PreBuildEvent>
+    <CustomBuildStep>
+      <Message>Custom Clean Step</Message>
+    </CustomBuildStep>
+    <CustomBuildStep>
+      <Outputs>force_clean</Outputs>
+      <Command>rmdir "$(OutDir)"\include\libotr /s /q
+if exist $(OutDir)\licenses\libotr.txt (
+del /f /q $(OutDir)\licenses\libotr.txt
+)</Command>
+    </CustomBuildStep>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='DebugDLL|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <PreprocessorDefinitions>WIN32;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_WIN32_WINNT=0x0502;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>.\;$(OutDir)\include;.\src\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <DisableSpecificWarnings>4996;4018;4005;4244;4267;4312;4311;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+      <ProgramDataBaseFileName>$(IntDir)$(TargetName).pdb</ProgramDataBaseFileName>
+      <ForcedIncludeFiles>libotr-win32-defines.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <MinimalRebuild>false</MinimalRebuild>
+    </ClCompile>
+    <Link>
+      <OutputFile>$(OutDir)\bin\x86\$(TargetName)$(TargetExt)</OutputFile>
+      <ProgramDatabaseFile>$(OutDir)\lib\x86\$(TargetName).pdb</ProgramDatabaseFile>
+      <SubSystem>Windows</SubSystem>
+      <ImportLibrary>$(OutDir)\lib\x86\$(TargetName).lib</ImportLibrary>
+      <ProfileGuidedDatabase>$(IntDir)\$(TargetName).pgd</ProfileGuidedDatabase>
+      <ModuleDefinitionFile>libotr.def</ModuleDefinitionFile>
+      <LargeAddressAware>true</LargeAddressAware>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>libgcryptd.lib;%(AdditionalDependencies)</AdditionalDependencies>
+	  <AdditionalLibraryDirectories>$(OutDir)\lib\x86\;$(ProjectDir)\..\..\prebuilt\lib\x86\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <MinimumRequiredVersion>5.1</MinimumRequiredVersion>
+    </Link>
+    <PostBuildEvent>
+      <Command>mkdir "$(OutDir)"\include\libotr
+copy ..\src\auth.h $(OutDir)\include\libotr\
+copy ..\src\b64.h $(OutDir)\include\libotr\
+copy ..\src\context.h $(OutDir)\include\libotr\
+copy ..\src\context_priv.h $(OutDir)\include\libotr\
+copy ..\src\dh.h $(OutDir)\include\libotr\
+copy ..\src\instag.h $(OutDir)\include\libotr\
+copy ..\src\mem.h $(OutDir)\include\libotr\
+copy ..\src\message.h $(OutDir)\include\libotr\
+copy ..\src\privkey.h $(OutDir)\include\libotr\
+copy ..\src\privkey-t.h $(OutDir)\include\libotr\
+copy ..\src\proto.h $(OutDir)\include\libotr\
+copy ..\src\serial.h $(OutDir)\include\libotr\
+copy ..\src\sm.h $(OutDir)\include\libotr\
+copy ..\src\tlv.h $(OutDir)\include\libotr\
+copy ..\src\userstate.h $(OutDir)\include\libotr\
+copy ..\src\version.h $(OutDir)\include\libotr\
+mkdir $(OutDir)\licenses
+copy ..\COPYING.LIB $(OutDir)\licenses\libotr.txt</Command>
+    </PostBuildEvent>
+    <PreBuildEvent>
+      <Command>if exist "$(OutDir)"\include\libotr\auth.h (
+del "$(OutDir)"\include\libotr\auth.h
+)
+if exist "$(OutDir)"\include\libotr\b64.h (
+del "$(OutDir)"\include\libotr\b64.h
+)
+if exist "$(OutDir)"\include\libotr\context.h (
+del "$(OutDir)"\include\libotr\context.h
+)
+if exist "$(OutDir)"\include\libotr\context_priv.h (
+del "$(OutDir)"\include\libotr\context_priv.h
+)
+if exist "$(OutDir)"\include\libotr\dh.h (
+del "$(OutDir)"\include\libotr\dh.h
+)
+if exist "$(OutDir)"\include\libotr\instag.h (
+del "$(OutDir)"\include\libotr\instag.h
+)
+if exist "$(OutDir)"\include\libotr\mem.h (
+del "$(OutDir)"\include\libotr\mem.h
+)
+if exist "$(OutDir)"\include\libotr\message.h (
+del "$(OutDir)"\include\libotr\message.h
+)
+if exist "$(OutDir)"\include\libotr\privkey.h (
+del "$(OutDir)"\include\libotr\privkey.h
+)
+if exist "$(OutDir)"\include\libotr\privkey-t.h (
+del "$(OutDir)"\include\libotr\privkey-t.h
+)
+if exist "$(OutDir)"\include\libotr\proto.h (
+del "$(OutDir)"\include\libotr\proto.h
+)
+if exist "$(OutDir)"\include\libotr\serial.h (
+del "$(OutDir)"\include\libotr\serial.h
+)
+if exist "$(OutDir)"\include\libotr\sm.h (
+del "$(OutDir)"\include\libotr\sm.h
+)
+if exist "$(OutDir)"\include\libotr\tlv.h (
+del "$(OutDir)"\include\libotr\tlv.h
+)
+if exist "$(OutDir)"\include\libotr\userstate.h (
+del "$(OutDir)"\include\libotr\userstate.h
+)
+if exist "$(OutDir)"\include\libotr\version.h (
+del "$(OutDir)"\include\libotr\version.h
+)
+</Command>
+    </PreBuildEvent>
+    <CustomBuildStep>
+      <Message>Custom Clean Step</Message>
+    </CustomBuildStep>
+    <CustomBuildStep>
+      <Outputs>force_clean</Outputs>
+      <Command>rmdir "$(OutDir)"\include\libotr /s /q
+if exist $(OutDir)\licenses\libotr.txt (
+del /f /q $(OutDir)\licenses\libotr.txt
+)</Command>
+    </CustomBuildStep>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='DebugDLL|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <PreprocessorDefinitions>WIN32;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_WIN32_WINNT=0x0600;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>.\;$(OutDir)\include;.\src\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <DisableSpecificWarnings>4996;4018;4005;4244;4267;4312;4311;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+      <ProgramDataBaseFileName>$(IntDir)$(TargetName).pdb</ProgramDataBaseFileName>
+      <ForcedIncludeFiles>libotr-win32-defines.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <MinimalRebuild>false</MinimalRebuild>
+    </ClCompile>
+    <Link>
+      <OutputFile>$(OutDir)\bin\x64\$(TargetName)$(TargetExt)</OutputFile>
+      <ProgramDatabaseFile>$(OutDir)\lib\x64\$(TargetName).pdb</ProgramDatabaseFile>
+      <SubSystem>Windows</SubSystem>
+      <ImportLibrary>$(OutDir)\lib\x64\$(TargetName).lib</ImportLibrary>
+      <ProfileGuidedDatabase>$(IntDir)\$(TargetName).pgd</ProfileGuidedDatabase>
+      <ModuleDefinitionFile>libotr.def</ModuleDefinitionFile>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>libgcryptd.lib;%(AdditionalDependencies)</AdditionalDependencies>
+	  <AdditionalLibraryDirectories>$(OutDir)\lib\x64\;$(ProjectDir)\..\..\prebuilt\lib\x64\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <MinimumRequiredVersion>6.0</MinimumRequiredVersion>
+    </Link>
+    <PostBuildEvent>
+      <Command>mkdir "$(OutDir)"\include\libotr
+copy ..\src\auth.h $(OutDir)\include\libotr\
+copy ..\src\b64.h $(OutDir)\include\libotr\
+copy ..\src\context.h $(OutDir)\include\libotr\
+copy ..\src\context_priv.h $(OutDir)\include\libotr\
+copy ..\src\dh.h $(OutDir)\include\libotr\
+copy ..\src\instag.h $(OutDir)\include\libotr\
+copy ..\src\mem.h $(OutDir)\include\libotr\
+copy ..\src\message.h $(OutDir)\include\libotr\
+copy ..\src\privkey.h $(OutDir)\include\libotr\
+copy ..\src\privkey-t.h $(OutDir)\include\libotr\
+copy ..\src\proto.h $(OutDir)\include\libotr\
+copy ..\src\serial.h $(OutDir)\include\libotr\
+copy ..\src\sm.h $(OutDir)\include\libotr\
+copy ..\src\tlv.h $(OutDir)\include\libotr\
+copy ..\src\userstate.h $(OutDir)\include\libotr\
+copy ..\src\version.h $(OutDir)\include\libotr\
+mkdir $(OutDir)\licenses
+copy ..\COPYING.LIB $(OutDir)\licenses\libotr.txt</Command>
+    </PostBuildEvent>
+    <PreBuildEvent>
+      <Command>if exist "$(OutDir)"\include\libotr\auth.h (
+del "$(OutDir)"\include\libotr\auth.h
+)
+if exist "$(OutDir)"\include\libotr\b64.h (
+del "$(OutDir)"\include\libotr\b64.h
+)
+if exist "$(OutDir)"\include\libotr\context.h (
+del "$(OutDir)"\include\libotr\context.h
+)
+if exist "$(OutDir)"\include\libotr\context_priv.h (
+del "$(OutDir)"\include\libotr\context_priv.h
+)
+if exist "$(OutDir)"\include\libotr\dh.h (
+del "$(OutDir)"\include\libotr\dh.h
+)
+if exist "$(OutDir)"\include\libotr\instag.h (
+del "$(OutDir)"\include\libotr\instag.h
+)
+if exist "$(OutDir)"\include\libotr\mem.h (
+del "$(OutDir)"\include\libotr\mem.h
+)
+if exist "$(OutDir)"\include\libotr\message.h (
+del "$(OutDir)"\include\libotr\message.h
+)
+if exist "$(OutDir)"\include\libotr\privkey.h (
+del "$(OutDir)"\include\libotr\privkey.h
+)
+if exist "$(OutDir)"\include\libotr\privkey-t.h (
+del "$(OutDir)"\include\libotr\privkey-t.h
+)
+if exist "$(OutDir)"\include\libotr\proto.h (
+del "$(OutDir)"\include\libotr\proto.h
+)
+if exist "$(OutDir)"\include\libotr\serial.h (
+del "$(OutDir)"\include\libotr\serial.h
+)
+if exist "$(OutDir)"\include\libotr\sm.h (
+del "$(OutDir)"\include\libotr\sm.h
+)
+if exist "$(OutDir)"\include\libotr\tlv.h (
+del "$(OutDir)"\include\libotr\tlv.h
+)
+if exist "$(OutDir)"\include\libotr\userstate.h (
+del "$(OutDir)"\include\libotr\userstate.h
+)
+if exist "$(OutDir)"\include\libotr\version.h (
+del "$(OutDir)"\include\libotr\version.h
+)
+</Command>
+    </PreBuildEvent>
+    <CustomBuildStep>
+      <Message>Custom Clean Step</Message>
+    </CustomBuildStep>
+    <CustomBuildStep>
+      <Outputs>force_clean</Outputs>
+      <Command>rmdir "$(OutDir)"\include\libotr /s /q
+if exist $(OutDir)\licenses\libotr.txt (
+del /f /q $(OutDir)\licenses\libotr.txt
+)</Command>
+    </CustomBuildStep>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <EnableFiberSafeOptimizations>true</EnableFiberSafeOptimizations>
+      <OmitFramePointers>true</OmitFramePointers>
+      <StringPooling>true</StringPooling>
+      <PreprocessorDefinitions>WIN32;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_WIN32_WINNT=0x0502;NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>.\;$(OutDir)\include;.\src\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <DisableSpecificWarnings>4996;4018;4005;4244;4267;4312;4311;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+      <InterproceduralOptimization>SingleFile</InterproceduralOptimization>
+      <ProgramDataBaseFileName>$(OutDir)\lib\x86\$(TargetName).pdb</ProgramDataBaseFileName>
+      <ForcedIncludeFiles>libotr-win32-defines.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+    <Lib>
+      <OutputFile>$(OutDir)\lib\x86\$(TargetName)$(TargetExt)</OutputFile>
+      <TargetMachine>MachineX86</TargetMachine>
+      <SubSystem>Windows</SubSystem>
+      <AdditionalDependencies>libgcrypt.lib;%(AdditionalDependencies)</AdditionalDependencies>
+	  <AdditionalLibraryDirectories>$(OutDir)\lib\x86\;$(ProjectDir)\..\..\prebuilt\lib\x86\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Lib>
+    <PostBuildEvent>
+      <Command>mkdir "$(OutDir)"\include\libotr
+copy ..\src\auth.h $(OutDir)\include\libotr\
+copy ..\src\b64.h $(OutDir)\include\libotr\
+copy ..\src\context.h $(OutDir)\include\libotr\
+copy ..\src\context_priv.h $(OutDir)\include\libotr\
+copy ..\src\dh.h $(OutDir)\include\libotr\
+copy ..\src\instag.h $(OutDir)\include\libotr\
+copy ..\src\mem.h $(OutDir)\include\libotr\
+copy ..\src\message.h $(OutDir)\include\libotr\
+copy ..\src\privkey.h $(OutDir)\include\libotr\
+copy ..\src\privkey-t.h $(OutDir)\include\libotr\
+copy ..\src\proto.h $(OutDir)\include\libotr\
+copy ..\src\serial.h $(OutDir)\include\libotr\
+copy ..\src\sm.h $(OutDir)\include\libotr\
+copy ..\src\tlv.h $(OutDir)\include\libotr\
+copy ..\src\userstate.h $(OutDir)\include\libotr\
+copy ..\src\version.h $(OutDir)\include\libotr\
+mkdir $(OutDir)\licenses
+copy ..\COPYING.LIB $(OutDir)\licenses\libotr.txt</Command>
+    </PostBuildEvent>
+    <PreBuildEvent>
+      <Command>if exist "$(OutDir)"\include\libotr\auth.h (
+del "$(OutDir)"\include\libotr\auth.h
+)
+if exist "$(OutDir)"\include\libotr\b64.h (
+del "$(OutDir)"\include\libotr\b64.h
+)
+if exist "$(OutDir)"\include\libotr\context.h (
+del "$(OutDir)"\include\libotr\context.h
+)
+if exist "$(OutDir)"\include\libotr\context_priv.h (
+del "$(OutDir)"\include\libotr\context_priv.h
+)
+if exist "$(OutDir)"\include\libotr\dh.h (
+del "$(OutDir)"\include\libotr\dh.h
+)
+if exist "$(OutDir)"\include\libotr\instag.h (
+del "$(OutDir)"\include\libotr\instag.h
+)
+if exist "$(OutDir)"\include\libotr\mem.h (
+del "$(OutDir)"\include\libotr\mem.h
+)
+if exist "$(OutDir)"\include\libotr\message.h (
+del "$(OutDir)"\include\libotr\message.h
+)
+if exist "$(OutDir)"\include\libotr\privkey.h (
+del "$(OutDir)"\include\libotr\privkey.h
+)
+if exist "$(OutDir)"\include\libotr\privkey-t.h (
+del "$(OutDir)"\include\libotr\privkey-t.h
+)
+if exist "$(OutDir)"\include\libotr\proto.h (
+del "$(OutDir)"\include\libotr\proto.h
+)
+if exist "$(OutDir)"\include\libotr\serial.h (
+del "$(OutDir)"\include\libotr\serial.h
+)
+if exist "$(OutDir)"\include\libotr\sm.h (
+del "$(OutDir)"\include\libotr\sm.h
+)
+if exist "$(OutDir)"\include\libotr\tlv.h (
+del "$(OutDir)"\include\libotr\tlv.h
+)
+if exist "$(OutDir)"\include\libotr\userstate.h (
+del "$(OutDir)"\include\libotr\userstate.h
+)
+if exist "$(OutDir)"\include\libotr\version.h (
+del "$(OutDir)"\include\libotr\version.h
+)
+</Command>
+    </PreBuildEvent>
+    <CustomBuildStep>
+      <Message>Custom Clean Step</Message>
+    </CustomBuildStep>
+    <CustomBuildStep>
+      <Outputs>force_clean</Outputs>
+      <Command>rmdir "$(OutDir)"\include\libotr /s /q
+if exist $(OutDir)\licenses\libotr.txt (
+del /f /q $(OutDir)\licenses\libotr.txt
+)</Command>
+    </CustomBuildStep>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseLTO|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <EnableFiberSafeOptimizations>true</EnableFiberSafeOptimizations>
+      <OmitFramePointers>true</OmitFramePointers>
+      <StringPooling>true</StringPooling>
+      <PreprocessorDefinitions>WIN32;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_WIN32_WINNT=0x0502;NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>.\;$(OutDir)\include;.\src\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <DisableSpecificWarnings>4996;4018;4005;4244;4267;4312;4311;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+      <InterproceduralOptimization>SingleFile</InterproceduralOptimization>
+      <ProgramDataBaseFileName>$(OutDir)\lib\x86\$(TargetName).pdb</ProgramDataBaseFileName>
+      <ForcedIncludeFiles>libotr-win32-defines.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+    <Lib>
+      <OutputFile>$(OutDir)\lib\x86\$(TargetName)$(TargetExt)</OutputFile>
+      <TargetMachine>MachineX86</TargetMachine>
+      <SubSystem>Windows</SubSystem>
+      <AdditionalDependencies>libgcrypt.lib;%(AdditionalDependencies)</AdditionalDependencies>
+	  <AdditionalLibraryDirectories>$(OutDir)\lib\x86\;$(ProjectDir)\..\..\prebuilt\lib\x86\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Lib>
+    <PostBuildEvent>
+      <Command>mkdir "$(OutDir)"\include\libotr
+copy ..\src\auth.h $(OutDir)\include\libotr\
+copy ..\src\b64.h $(OutDir)\include\libotr\
+copy ..\src\context.h $(OutDir)\include\libotr\
+copy ..\src\context_priv.h $(OutDir)\include\libotr\
+copy ..\src\dh.h $(OutDir)\include\libotr\
+copy ..\src\instag.h $(OutDir)\include\libotr\
+copy ..\src\mem.h $(OutDir)\include\libotr\
+copy ..\src\message.h $(OutDir)\include\libotr\
+copy ..\src\privkey.h $(OutDir)\include\libotr\
+copy ..\src\privkey-t.h $(OutDir)\include\libotr\
+copy ..\src\proto.h $(OutDir)\include\libotr\
+copy ..\src\serial.h $(OutDir)\include\libotr\
+copy ..\src\sm.h $(OutDir)\include\libotr\
+copy ..\src\tlv.h $(OutDir)\include\libotr\
+copy ..\src\userstate.h $(OutDir)\include\libotr\
+copy ..\src\version.h $(OutDir)\include\libotr\
+mkdir $(OutDir)\licenses
+copy ..\COPYING.LIB $(OutDir)\licenses\libotr.txt</Command>
+    </PostBuildEvent>
+    <PreBuildEvent>
+      <Command>if exist "$(OutDir)"\include\libotr\auth.h (
+del "$(OutDir)"\include\libotr\auth.h
+)
+if exist "$(OutDir)"\include\libotr\b64.h (
+del "$(OutDir)"\include\libotr\b64.h
+)
+if exist "$(OutDir)"\include\libotr\context.h (
+del "$(OutDir)"\include\libotr\context.h
+)
+if exist "$(OutDir)"\include\libotr\context_priv.h (
+del "$(OutDir)"\include\libotr\context_priv.h
+)
+if exist "$(OutDir)"\include\libotr\dh.h (
+del "$(OutDir)"\include\libotr\dh.h
+)
+if exist "$(OutDir)"\include\libotr\instag.h (
+del "$(OutDir)"\include\libotr\instag.h
+)
+if exist "$(OutDir)"\include\libotr\mem.h (
+del "$(OutDir)"\include\libotr\mem.h
+)
+if exist "$(OutDir)"\include\libotr\message.h (
+del "$(OutDir)"\include\libotr\message.h
+)
+if exist "$(OutDir)"\include\libotr\privkey.h (
+del "$(OutDir)"\include\libotr\privkey.h
+)
+if exist "$(OutDir)"\include\libotr\privkey-t.h (
+del "$(OutDir)"\include\libotr\privkey-t.h
+)
+if exist "$(OutDir)"\include\libotr\proto.h (
+del "$(OutDir)"\include\libotr\proto.h
+)
+if exist "$(OutDir)"\include\libotr\serial.h (
+del "$(OutDir)"\include\libotr\serial.h
+)
+if exist "$(OutDir)"\include\libotr\sm.h (
+del "$(OutDir)"\include\libotr\sm.h
+)
+if exist "$(OutDir)"\include\libotr\tlv.h (
+del "$(OutDir)"\include\libotr\tlv.h
+)
+if exist "$(OutDir)"\include\libotr\userstate.h (
+del "$(OutDir)"\include\libotr\userstate.h
+)
+if exist "$(OutDir)"\include\libotr\version.h (
+del "$(OutDir)"\include\libotr\version.h
+)
+</Command>
+    </PreBuildEvent>
+    <CustomBuildStep>
+      <Message>Custom Clean Step</Message>
+    </CustomBuildStep>
+    <CustomBuildStep>
+      <Outputs>force_clean</Outputs>
+      <Command>rmdir "$(OutDir)"\include\libotr /s /q
+if exist $(OutDir)\licenses\libotr.txt (
+del /f /q $(OutDir)\licenses\libotr.txt
+)</Command>
+    </CustomBuildStep>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <EnableFiberSafeOptimizations>true</EnableFiberSafeOptimizations>
+      <OmitFramePointers>true</OmitFramePointers>
+      <StringPooling>true</StringPooling>
+      <PreprocessorDefinitions>WIN32;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_WIN32_WINNT=0x0600;NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>.\;$(OutDir)\include;.\src\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <DisableSpecificWarnings>4996;4018;4005;4244;4267;4312;4311;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+      <InterproceduralOptimization>SingleFile</InterproceduralOptimization>
+      <ProgramDataBaseFileName>$(OutDir)\lib\x64\$(TargetName).pdb</ProgramDataBaseFileName>
+      <ForcedIncludeFiles>libotr-win32-defines.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+    <Lib>
+      <OutputFile>$(OutDir)\lib\x64\$(TargetName)$(TargetExt)</OutputFile>
+      <TargetMachine>MachineX64</TargetMachine>
+      <SubSystem>Windows</SubSystem>
+      <AdditionalDependencies>libgcrypt.lib;%(AdditionalDependencies)</AdditionalDependencies>
+	  <AdditionalLibraryDirectories>$(OutDir)\lib\x64\;$(ProjectDir)\..\..\prebuilt\lib\x64\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Lib>
+    <PostBuildEvent>
+      <Command>mkdir "$(OutDir)"\include\libotr
+copy ..\src\auth.h $(OutDir)\include\libotr\
+copy ..\src\b64.h $(OutDir)\include\libotr\
+copy ..\src\context.h $(OutDir)\include\libotr\
+copy ..\src\context_priv.h $(OutDir)\include\libotr\
+copy ..\src\dh.h $(OutDir)\include\libotr\
+copy ..\src\instag.h $(OutDir)\include\libotr\
+copy ..\src\mem.h $(OutDir)\include\libotr\
+copy ..\src\message.h $(OutDir)\include\libotr\
+copy ..\src\privkey.h $(OutDir)\include\libotr\
+copy ..\src\privkey-t.h $(OutDir)\include\libotr\
+copy ..\src\proto.h $(OutDir)\include\libotr\
+copy ..\src\serial.h $(OutDir)\include\libotr\
+copy ..\src\sm.h $(OutDir)\include\libotr\
+copy ..\src\tlv.h $(OutDir)\include\libotr\
+copy ..\src\userstate.h $(OutDir)\include\libotr\
+copy ..\src\version.h $(OutDir)\include\libotr\
+mkdir $(OutDir)\licenses
+copy ..\COPYING.LIB $(OutDir)\licenses\libotr.txt</Command>
+    </PostBuildEvent>
+    <PreBuildEvent>
+      <Command>if exist "$(OutDir)"\include\libotr\auth.h (
+del "$(OutDir)"\include\libotr\auth.h
+)
+if exist "$(OutDir)"\include\libotr\b64.h (
+del "$(OutDir)"\include\libotr\b64.h
+)
+if exist "$(OutDir)"\include\libotr\context.h (
+del "$(OutDir)"\include\libotr\context.h
+)
+if exist "$(OutDir)"\include\libotr\context_priv.h (
+del "$(OutDir)"\include\libotr\context_priv.h
+)
+if exist "$(OutDir)"\include\libotr\dh.h (
+del "$(OutDir)"\include\libotr\dh.h
+)
+if exist "$(OutDir)"\include\libotr\instag.h (
+del "$(OutDir)"\include\libotr\instag.h
+)
+if exist "$(OutDir)"\include\libotr\mem.h (
+del "$(OutDir)"\include\libotr\mem.h
+)
+if exist "$(OutDir)"\include\libotr\message.h (
+del "$(OutDir)"\include\libotr\message.h
+)
+if exist "$(OutDir)"\include\libotr\privkey.h (
+del "$(OutDir)"\include\libotr\privkey.h
+)
+if exist "$(OutDir)"\include\libotr\privkey-t.h (
+del "$(OutDir)"\include\libotr\privkey-t.h
+)
+if exist "$(OutDir)"\include\libotr\proto.h (
+del "$(OutDir)"\include\libotr\proto.h
+)
+if exist "$(OutDir)"\include\libotr\serial.h (
+del "$(OutDir)"\include\libotr\serial.h
+)
+if exist "$(OutDir)"\include\libotr\sm.h (
+del "$(OutDir)"\include\libotr\sm.h
+)
+if exist "$(OutDir)"\include\libotr\tlv.h (
+del "$(OutDir)"\include\libotr\tlv.h
+)
+if exist "$(OutDir)"\include\libotr\userstate.h (
+del "$(OutDir)"\include\libotr\userstate.h
+)
+if exist "$(OutDir)"\include\libotr\version.h (
+del "$(OutDir)"\include\libotr\version.h
+)
+</Command>
+    </PreBuildEvent>
+    <CustomBuildStep>
+      <Message>Custom Clean Step</Message>
+    </CustomBuildStep>
+    <CustomBuildStep>
+      <Outputs>force_clean</Outputs>
+      <Command>rmdir "$(OutDir)"\include\libotr /s /q
+if exist $(OutDir)\licenses\libotr.txt (
+del /f /q $(OutDir)\licenses\libotr.txt
+)</Command>
+    </CustomBuildStep>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseLTO|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <EnableFiberSafeOptimizations>true</EnableFiberSafeOptimizations>
+      <OmitFramePointers>true</OmitFramePointers>
+      <StringPooling>true</StringPooling>
+      <PreprocessorDefinitions>WIN32;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_WIN32_WINNT=0x0600;NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>.\;$(OutDir)\include;.\src\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <DisableSpecificWarnings>4996;4018;4005;4244;4267;4312;4311;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+      <InterproceduralOptimization>SingleFile</InterproceduralOptimization>
+      <ProgramDataBaseFileName>$(OutDir)\lib\x64\$(TargetName).pdb</ProgramDataBaseFileName>
+      <ForcedIncludeFiles>libotr-win32-defines.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+    <Lib>
+      <OutputFile>$(OutDir)\lib\x64\$(TargetName)$(TargetExt)</OutputFile>
+      <TargetMachine>MachineX64</TargetMachine>
+      <SubSystem>Windows</SubSystem>
+      <AdditionalDependencies>libgcrypt.lib;%(AdditionalDependencies)</AdditionalDependencies>
+	  <AdditionalLibraryDirectories>$(OutDir)\lib\x64\;$(ProjectDir)\..\..\prebuilt\lib\x64\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Lib>
+    <PostBuildEvent>
+      <Command>mkdir "$(OutDir)"\include\libotr
+copy ..\src\auth.h $(OutDir)\include\libotr\
+copy ..\src\b64.h $(OutDir)\include\libotr\
+copy ..\src\context.h $(OutDir)\include\libotr\
+copy ..\src\context_priv.h $(OutDir)\include\libotr\
+copy ..\src\dh.h $(OutDir)\include\libotr\
+copy ..\src\instag.h $(OutDir)\include\libotr\
+copy ..\src\mem.h $(OutDir)\include\libotr\
+copy ..\src\message.h $(OutDir)\include\libotr\
+copy ..\src\privkey.h $(OutDir)\include\libotr\
+copy ..\src\privkey-t.h $(OutDir)\include\libotr\
+copy ..\src\proto.h $(OutDir)\include\libotr\
+copy ..\src\serial.h $(OutDir)\include\libotr\
+copy ..\src\sm.h $(OutDir)\include\libotr\
+copy ..\src\tlv.h $(OutDir)\include\libotr\
+copy ..\src\userstate.h $(OutDir)\include\libotr\
+copy ..\src\version.h $(OutDir)\include\libotr\
+mkdir $(OutDir)\licenses
+copy ..\COPYING.LIB $(OutDir)\licenses\libotr.txt</Command>
+    </PostBuildEvent>
+    <PreBuildEvent>
+      <Command>if exist "$(OutDir)"\include\libotr\auth.h (
+del "$(OutDir)"\include\libotr\auth.h
+)
+if exist "$(OutDir)"\include\libotr\b64.h (
+del "$(OutDir)"\include\libotr\b64.h
+)
+if exist "$(OutDir)"\include\libotr\context.h (
+del "$(OutDir)"\include\libotr\context.h
+)
+if exist "$(OutDir)"\include\libotr\context_priv.h (
+del "$(OutDir)"\include\libotr\context_priv.h
+)
+if exist "$(OutDir)"\include\libotr\dh.h (
+del "$(OutDir)"\include\libotr\dh.h
+)
+if exist "$(OutDir)"\include\libotr\instag.h (
+del "$(OutDir)"\include\libotr\instag.h
+)
+if exist "$(OutDir)"\include\libotr\mem.h (
+del "$(OutDir)"\include\libotr\mem.h
+)
+if exist "$(OutDir)"\include\libotr\message.h (
+del "$(OutDir)"\include\libotr\message.h
+)
+if exist "$(OutDir)"\include\libotr\privkey.h (
+del "$(OutDir)"\include\libotr\privkey.h
+)
+if exist "$(OutDir)"\include\libotr\privkey-t.h (
+del "$(OutDir)"\include\libotr\privkey-t.h
+)
+if exist "$(OutDir)"\include\libotr\proto.h (
+del "$(OutDir)"\include\libotr\proto.h
+)
+if exist "$(OutDir)"\include\libotr\serial.h (
+del "$(OutDir)"\include\libotr\serial.h
+)
+if exist "$(OutDir)"\include\libotr\sm.h (
+del "$(OutDir)"\include\libotr\sm.h
+)
+if exist "$(OutDir)"\include\libotr\tlv.h (
+del "$(OutDir)"\include\libotr\tlv.h
+)
+if exist "$(OutDir)"\include\libotr\userstate.h (
+del "$(OutDir)"\include\libotr\userstate.h
+)
+if exist "$(OutDir)"\include\libotr\version.h (
+del "$(OutDir)"\include\libotr\version.h
+)
+</Command>
+    </PreBuildEvent>
+    <CustomBuildStep>
+      <Message>Custom Clean Step</Message>
+    </CustomBuildStep>
+    <CustomBuildStep>
+      <Outputs>force_clean</Outputs>
+      <Command>rmdir "$(OutDir)"\include\libotr /s /q
+if exist $(OutDir)\licenses\libotr.txt (
+del /f /q $(OutDir)\licenses\libotr.txt
+)</Command>
+    </CustomBuildStep>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseDLL|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <EnableFiberSafeOptimizations>true</EnableFiberSafeOptimizations>
+      <OmitFramePointers>true</OmitFramePointers>
+      <StringPooling>true</StringPooling>
+      <PreprocessorDefinitions>WIN32;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_WIN32_WINNT=0x0502;NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>.\;$(OutDir)\include;.\src\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <DisableSpecificWarnings>4996;4018;4005;4244;4267;4312;4311;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+      <ProgramDataBaseFileName>$(IntDir)$(TargetName).pdb</ProgramDataBaseFileName>
+      <ForcedIncludeFiles>libotr-win32-defines.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+    </ClCompile>
+    <Link>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <OutputFile>$(OutDir)\bin\x86\$(TargetName)$(TargetExt)</OutputFile>
+      <ProgramDatabaseFile>$(OutDir)\lib\x86\$(TargetName).pdb</ProgramDatabaseFile>
+      <SubSystem>Windows</SubSystem>
+      <ImportLibrary>$(OutDir)\lib\x86\$(TargetName).lib</ImportLibrary>
+      <ProfileGuidedDatabase>$(IntDir)\$(TargetName).pgd</ProfileGuidedDatabase>
+      <ModuleDefinitionFile>libotr.def</ModuleDefinitionFile>
+      <LargeAddressAware>true</LargeAddressAware>
+      <AdditionalDependencies>libgcrypt.lib;%(AdditionalDependencies)</AdditionalDependencies>
+	  <AdditionalLibraryDirectories>$(OutDir)\lib\x86\;$(ProjectDir)\..\..\prebuilt\lib\x86\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <MinimumRequiredVersion>5.1</MinimumRequiredVersion>
+    </Link>
+    <PostBuildEvent>
+      <Command>mkdir "$(OutDir)"\include\libotr
+copy ..\src\auth.h $(OutDir)\include\libotr\
+copy ..\src\b64.h $(OutDir)\include\libotr\
+copy ..\src\context.h $(OutDir)\include\libotr\
+copy ..\src\context_priv.h $(OutDir)\include\libotr\
+copy ..\src\dh.h $(OutDir)\include\libotr\
+copy ..\src\instag.h $(OutDir)\include\libotr\
+copy ..\src\mem.h $(OutDir)\include\libotr\
+copy ..\src\message.h $(OutDir)\include\libotr\
+copy ..\src\privkey.h $(OutDir)\include\libotr\
+copy ..\src\privkey-t.h $(OutDir)\include\libotr\
+copy ..\src\proto.h $(OutDir)\include\libotr\
+copy ..\src\serial.h $(OutDir)\include\libotr\
+copy ..\src\sm.h $(OutDir)\include\libotr\
+copy ..\src\tlv.h $(OutDir)\include\libotr\
+copy ..\src\userstate.h $(OutDir)\include\libotr\
+copy ..\src\version.h $(OutDir)\include\libotr\
+mkdir $(OutDir)\licenses
+copy ..\COPYING.LIB $(OutDir)\licenses\libotr.txt</Command>
+    </PostBuildEvent>
+    <PreBuildEvent>
+      <Command>if exist "$(OutDir)"\include\libotr\auth.h (
+del "$(OutDir)"\include\libotr\auth.h
+)
+if exist "$(OutDir)"\include\libotr\b64.h (
+del "$(OutDir)"\include\libotr\b64.h
+)
+if exist "$(OutDir)"\include\libotr\context.h (
+del "$(OutDir)"\include\libotr\context.h
+)
+if exist "$(OutDir)"\include\libotr\context_priv.h (
+del "$(OutDir)"\include\libotr\context_priv.h
+)
+if exist "$(OutDir)"\include\libotr\dh.h (
+del "$(OutDir)"\include\libotr\dh.h
+)
+if exist "$(OutDir)"\include\libotr\instag.h (
+del "$(OutDir)"\include\libotr\instag.h
+)
+if exist "$(OutDir)"\include\libotr\mem.h (
+del "$(OutDir)"\include\libotr\mem.h
+)
+if exist "$(OutDir)"\include\libotr\message.h (
+del "$(OutDir)"\include\libotr\message.h
+)
+if exist "$(OutDir)"\include\libotr\privkey.h (
+del "$(OutDir)"\include\libotr\privkey.h
+)
+if exist "$(OutDir)"\include\libotr\privkey-t.h (
+del "$(OutDir)"\include\libotr\privkey-t.h
+)
+if exist "$(OutDir)"\include\libotr\proto.h (
+del "$(OutDir)"\include\libotr\proto.h
+)
+if exist "$(OutDir)"\include\libotr\serial.h (
+del "$(OutDir)"\include\libotr\serial.h
+)
+if exist "$(OutDir)"\include\libotr\sm.h (
+del "$(OutDir)"\include\libotr\sm.h
+)
+if exist "$(OutDir)"\include\libotr\tlv.h (
+del "$(OutDir)"\include\libotr\tlv.h
+)
+if exist "$(OutDir)"\include\libotr\userstate.h (
+del "$(OutDir)"\include\libotr\userstate.h
+)
+if exist "$(OutDir)"\include\libotr\version.h (
+del "$(OutDir)"\include\libotr\version.h
+)
+</Command>
+    </PreBuildEvent>
+    <CustomBuildStep>
+      <Message>Custom Clean Step</Message>
+    </CustomBuildStep>
+    <CustomBuildStep>
+      <Outputs>force_clean</Outputs>
+      <Command>rmdir "$(OutDir)"\include\libotr /s /q
+if exist $(OutDir)\licenses\libotr.txt (
+del /f /q $(OutDir)\licenses\libotr.txt
+)</Command>
+    </CustomBuildStep>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseDLL|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <EnableFiberSafeOptimizations>true</EnableFiberSafeOptimizations>
+      <OmitFramePointers>true</OmitFramePointers>
+      <StringPooling>true</StringPooling>
+      <PreprocessorDefinitions>WIN32;_CRT_SECURE_NO_WARNINGS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_WIN32_WINNT=0x0600;NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>.\;$(OutDir)\include;.\src\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <DisableSpecificWarnings>4996;4018;4005;4244;4267;4312;4311;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+      <ProgramDataBaseFileName>$(IntDir)$(TargetName).pdb</ProgramDataBaseFileName>
+      <ForcedIncludeFiles>libotr-win32-defines.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+    </ClCompile>
+    <Link>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <OutputFile>$(OutDir)\bin\x64\$(TargetName)$(TargetExt)</OutputFile>
+      <ProgramDatabaseFile>$(OutDir)\lib\x64\$(TargetName).pdb</ProgramDatabaseFile>
+      <SubSystem>Windows</SubSystem>
+      <ImportLibrary>$(OutDir)\lib\x64\$(TargetName).lib</ImportLibrary>
+      <ProfileGuidedDatabase>$(IntDir)\$(TargetName).pgd</ProfileGuidedDatabase>
+      <ModuleDefinitionFile>libotr.def</ModuleDefinitionFile>
+      <AdditionalDependencies>libgcrypt.lib;%(AdditionalDependencies)</AdditionalDependencies>
+	  <AdditionalLibraryDirectories>$(OutDir)\lib\x64\;$(ProjectDir)\..\..\prebuilt\lib\x64\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <MinimumRequiredVersion>6.0</MinimumRequiredVersion>
+    </Link>
+    <PostBuildEvent>
+      <Command>mkdir "$(OutDir)"\include\libotr
+copy ..\src\auth.h $(OutDir)\include\libotr\
+copy ..\src\b64.h $(OutDir)\include\libotr\
+copy ..\src\context.h $(OutDir)\include\libotr\
+copy ..\src\context_priv.h $(OutDir)\include\libotr\
+copy ..\src\dh.h $(OutDir)\include\libotr\
+copy ..\src\instag.h $(OutDir)\include\libotr\
+copy ..\src\mem.h $(OutDir)\include\libotr\
+copy ..\src\message.h $(OutDir)\include\libotr\
+copy ..\src\privkey.h $(OutDir)\include\libotr\
+copy ..\src\privkey-t.h $(OutDir)\include\libotr\
+copy ..\src\proto.h $(OutDir)\include\libotr\
+copy ..\src\serial.h $(OutDir)\include\libotr\
+copy ..\src\sm.h $(OutDir)\include\libotr\
+copy ..\src\tlv.h $(OutDir)\include\libotr\
+copy ..\src\userstate.h $(OutDir)\include\libotr\
+copy ..\src\version.h $(OutDir)\include\libotr\
+mkdir $(OutDir)\licenses
+copy ..\COPYING.LIB $(OutDir)\licenses\libotr.txt</Command>
+    </PostBuildEvent>
+    <PreBuildEvent>
+      <Command>if exist "$(OutDir)"\include\libotr\auth.h (
+del "$(OutDir)"\include\libotr\auth.h
+)
+if exist "$(OutDir)"\include\libotr\b64.h (
+del "$(OutDir)"\include\libotr\b64.h
+)
+if exist "$(OutDir)"\include\libotr\context.h (
+del "$(OutDir)"\include\libotr\context.h
+)
+if exist "$(OutDir)"\include\libotr\context_priv.h (
+del "$(OutDir)"\include\libotr\context_priv.h
+)
+if exist "$(OutDir)"\include\libotr\dh.h (
+del "$(OutDir)"\include\libotr\dh.h
+)
+if exist "$(OutDir)"\include\libotr\instag.h (
+del "$(OutDir)"\include\libotr\instag.h
+)
+if exist "$(OutDir)"\include\libotr\mem.h (
+del "$(OutDir)"\include\libotr\mem.h
+)
+if exist "$(OutDir)"\include\libotr\message.h (
+del "$(OutDir)"\include\libotr\message.h
+)
+if exist "$(OutDir)"\include\libotr\privkey.h (
+del "$(OutDir)"\include\libotr\privkey.h
+)
+if exist "$(OutDir)"\include\libotr\privkey-t.h (
+del "$(OutDir)"\include\libotr\privkey-t.h
+)
+if exist "$(OutDir)"\include\libotr\proto.h (
+del "$(OutDir)"\include\libotr\proto.h
+)
+if exist "$(OutDir)"\include\libotr\serial.h (
+del "$(OutDir)"\include\libotr\serial.h
+)
+if exist "$(OutDir)"\include\libotr\sm.h (
+del "$(OutDir)"\include\libotr\sm.h
+)
+if exist "$(OutDir)"\include\libotr\tlv.h (
+del "$(OutDir)"\include\libotr\tlv.h
+)
+if exist "$(OutDir)"\include\libotr\userstate.h (
+del "$(OutDir)"\include\libotr\userstate.h
+)
+if exist "$(OutDir)"\include\libotr\version.h (
+del "$(OutDir)"\include\libotr\version.h
+)
+</Command>
+    </PreBuildEvent>
+    <CustomBuildStep>
+      <Message>Custom Clean Step</Message>
+    </CustomBuildStep>
+    <CustomBuildStep>
+      <Outputs>force_clean</Outputs>
+      <Command>rmdir "$(OutDir)"\include\libotr /s /q
+if exist $(OutDir)\licenses\libotr.txt (
+del /f /q $(OutDir)\licenses\libotr.txt
+)</Command>
+    </CustomBuildStep>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
